@@ -2,6 +2,7 @@ from discord.ext.commands import Bot
 from datetime import datetime
 import discord
 import pytz
+import os
 
 Client = discord.Client()
 client = Bot(command_prefix="$")
@@ -83,4 +84,4 @@ async def on_message(message):
                 embed.add_field(name="That word has been blacklisted", value="Use $list for the list of blacklisted words")
                 await client.send_message(message.channel, embed=embed)
 
-client.run(process.env.TOKEN)
+client.run(str(os.environ.get('BOT_TOKEN')))
