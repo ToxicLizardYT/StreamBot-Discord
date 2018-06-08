@@ -93,6 +93,4 @@ async def on_message(message):
                 embed.add_field(name="That word has been blacklisted", value="Use $list for the list of blacklisted words")
                 await client.send_message(message.channel, embed=embed)
 
-fp = open("token.txt", "r")
-TOKEN = fp.readline()
-client.run(TOKEN)
+client.run(process.env.TOKEN)
