@@ -2,9 +2,7 @@ from discord.ext.commands import Bot
 from datetime import datetime
 import discord
 import pytz
-import sys
 
-sys.stderr = open("errlog.txt", "w")
 Client = discord.Client()
 client = Bot(command_prefix="$")
 
@@ -63,13 +61,6 @@ async def on_message(message):
         embed = discord.Embed(title="On!", color=0x00FF00)
         await client.send_message(message.channel, embed=embed)
 
-    elif message.content.upper().startswith("$OFF") and message.author.id == "RapGod_id":
-        embed = discord.Embed(title="Off!", description="Stopped externally by <@" + message.author.id + ">", color=0xFF0000)
-        await client.send_message(discord.Object("454027523270115358"), embed=embed)
-        await client.send_message(discord.Object("454369180951511051"), embed=embed)
-        await client.send_message(discord.Object("454393067974426637"), embed=embed)
-        exit(1)
-
     elif message.content.upper().startswith("$LIST"):
         embed = discord.Embed(title="FILTER", color=0x8b8fa1)  # 8b8fa1
         embed.add_field(name="Words you can\'t say", value="\n".join(filter[0:]).lower())
@@ -79,7 +70,6 @@ async def on_message(message):
         embed = discord.Embed(title="ERROR", color=0xff4444)  # ff4444
         embed.add_field(name="That command doesn\'t exist", value="Use $help for help")
         await client.send_message(message.channel, embed=embed)
-
 
     else:
         contents = message.content.split(" ")
