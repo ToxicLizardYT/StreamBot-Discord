@@ -1,0 +1,6 @@
+discord.py
+pip
+datetime
+asyncio
+pytz
+sys
