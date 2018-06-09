@@ -20,8 +20,7 @@ urls = ["https://media.giphy.com/media/9pCESofHVLvcA/giphy.gif",
 
 with open("swear.txt", "rt") as fp:
     filter = fp.readlines()
-    filter = [x.strip() for x in filter]
-# print(filter)
+filter = [x.strip() for x in filter]
 
 
 async def background_loop():
@@ -33,7 +32,7 @@ async def background_loop():
             await client.send_message(discord.Object("454027523270115358"), embed=embed)
             await client.send_message(discord.Object("454369180951511051"), embed=embed)
             await client.send_message(discord.Object("454393067974426637"), embed=embed)
-        await asyncio.sleep(60)
+        await asyncio.sleep(1800)
 
 
 @client.event
@@ -80,6 +79,16 @@ async def on_message(message):
         else:
             embed.set_image(url=random.choice(urls))  # Displays gif
         await client.send_message(message.channel, embed=embed)
+
+    elif message.content.upper().startswith("$PLAY"):
+        args = message.content.split(" ")
+        args.append("end")
+        if args[1] != "end":
+            author = client.message.author
+            vc = author.voice_channel
+            join = await client.join_voice_channel(vc)
+            player = await join.create_ytdl_player(args[1])
+            player.start()
 
     elif message.content.upper().startswith("$HELP"):
         args = message.content.split(" ")  # Makes parameter list

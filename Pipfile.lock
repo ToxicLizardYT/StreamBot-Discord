@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "4370b8eacbdc84fec53cc8fdcbac3400e927fa51a29de9383a24cb1a655925ea"
+            "sha256": "84a930769452ba32bcd8e2ac1f2d59ae05a54b4ee199d37aa21b70ed58ebcd83"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -125,6 +125,14 @@
                 "sha256:e9c1cdbb591432c59d0b5ca64fd30b6d517024767f152fc169563b26e7bcc9da"
             ],
             "version": "==3.4"
+        },
+        "youtube-dl": {
+            "hashes": [
+                "sha256:3f476e40e521979521748138e86ee33a5ee743b5abb4e449265b3ba312e1d962",
+                "sha256:aa8b11b17e2b85dd2714a81180146381ea951cda11b3e4e38903a7861b82ff2f"
+            ],
+            "index": "pypi",
+            "version": "==2018.6.4"
         },
         "zope.interface": {
             "hashes": [
