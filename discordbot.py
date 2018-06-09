@@ -63,7 +63,7 @@ async def on_message(message):
         gif = randint(0, gifNum)
         embed = discord.Embed(title="GIF", color=0x059789)
         if args[1] == "list":
-            embed.add_field(name="List of gif links that can be sent", value="\n\t".join(urls))
+            embed.add_field(name="List of gif links that can be sent", value="\n".join(urls))
         else:
             embed.add_field(name="Here\'s a random gif!", value="You got gif " + str(gif + 1) + "/" + str(gifNum))
             embed.set_image(url=urls[gif])
