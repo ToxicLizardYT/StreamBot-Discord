@@ -1,6 +1,6 @@
 from discord.ext.commands import Bot
 import datetime
-from random import randint
+import random
 import discord
 import pytz
 import os
@@ -9,15 +9,18 @@ Client = discord.Client()
 client = Bot(command_prefix="$")
 
 RapGod_id = "324332386219327488"
-filter = ['NIGGER', 'FAGGOT', 'CUNT', 'GAY', 'FUCK', 'SHIT', 'DAMN', 'NIGGERFAGGOT', 'GODDAMN', 'ASS', 'PENIS', 'VAGINA']
 
-
+filter = []
 urls = ["https://media.giphy.com/media/9pCESofHVLvcA/giphy.gif",
         "https://media.giphy.com/media/iAQFuaZSrDnBuVCdZO/giphy.gif",
         "https://media.discordapp.net/attachments/291284109232308226/454794855021805578/raw.gif",
         "https://media.giphy.com/media/5Yl6uqC0YQHejTKi7Q/giphy.gif",
         "https://media.giphy.com/media/5UH4ZEelyBwwIW8E2k/giphy.gif",
         "https://media.giphy.com/media/26Ff0l4TARWjMTSKs/giphy.gif"]
+
+with open("swear.txt", "r") as fp
+    for line in fp:
+        filter.append(line.strip())
 
 
 @client.event
@@ -58,14 +61,11 @@ async def on_message(message):
     elif message.content.upper().startswith("$GIF"):
         args = message.content.split(" ")  # Makes parameter list
         args.append("end")
-        gifNum = len(urls)  # Gets number of gifs
-        gif = randint(0, gifNum - 1)  # Gets random gif
         embed = discord.Embed(title="GIF", color=0x059789)
         if args[1] == "list":  # if '$gif list' is entered
             embed.add_field(name="List of gif links that can be sent", value="\n".join(urls))  # Shows urls of all gifs
         else:
-            embed.add_field(name="Here\'s a random gif!", value="You got gif " + str(gif + 1) + "/" + str(gifNum + 1))
-            embed.set_image(url=urls[gif])  # Displays gif
+            embed.set_image(url=random.choice(urls))  # Displays gif
         await client.send_message(message.channel, embed=embed)
 
     elif message.content.upper().startswith("$HELP"):
