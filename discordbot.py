@@ -3,6 +3,7 @@ import time
 import datetime
 import random
 import discord
+import asyncio
 import pytz
 import os
 
@@ -33,7 +34,7 @@ async def background_loop():
         # await client.send_message(discord.Object("454027523270115358"), embed=embed)
         # await client.send_message(discord.Object("454369180951511051"), embed=embed)
         await client.send_message(discord.Object("454393067974426637"), embed=embed)
-        time.sleep(60)
+        await asyncio.sleep(60)
 
 
 @client.event
@@ -112,5 +113,5 @@ async def on_message(message):
                 embed.add_field(name="That word has been blacklisted", value="Common swear words or racial slurs have been banned")
                 await client.send_message(message.channel, embed=embed)
 
-client.loop.create_task(background_loop())
+Bot.loop.create_task()
 client.run(str(os.environ.get('BOT_TOKEN')))
