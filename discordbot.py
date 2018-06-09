@@ -1,5 +1,5 @@
 from discord.ext.commands import Bot
-import time as Time
+# import time
 import datetime
 import random
 import discord
@@ -25,9 +25,9 @@ with open("swear.txt", "rt") as fp:
 
 
 async def background_loop():
-    time = datetime.datetime.now(pytz.timezone("US/Central"))  # Gets time when the message was sent
-    if time.minute % 5 == 0:
-        print(str(time.minute))
+    Time = datetime.datetime.now(pytz.timezone("US/Central"))  # Gets time when the message was sent
+    print(str(Time.minute))
+    if Time.minute % 5 == 0:
         embed = discord.Embed(title="GIF of the Hour", color=0x059789)
         embed.set_image(url=random.choice(urls))  # Displays gif
         # await client.send_message(discord.Object("454027523270115358"), embed=embed)
@@ -46,12 +46,12 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    time = datetime.datetime.now(pytz.timezone("US/Central"))  # Gets time when the message was sent
+    Time = datetime.datetime.now(pytz.timezone("US/Central"))  # Gets time when the message was sent
     if message.content.upper().startswith("$TIME"):
-        hours = 19 - time.hour - 1  # Defines Hour
+        hours = 19 - Time.hour - 1  # Defines Hour
         if hours < 0:
-            hours = 19 + 4 - time.hour % 19  # Redefines hour if hour is less than 0 (past 7pm cdt)
-        minutes = 60 - time.minute  # Defines minute
+            hours = 19 + 4 - Time.hour % 19  # Redefines hour if hour is less than 0 (past 7pm cdt)
+        minutes = 60 - Time.minute  # Defines minute
         embed = discord.Embed(title="Time", color=0x61ff69)
         if minutes == 60:
             embed.add_field(name="Time until next stream:", value="{} hour(s)".format(hours + 1))  # If no minutes only show hour
@@ -87,7 +87,7 @@ async def on_message(message):
         embed = discord.Embed(title="Help", color=0x15f3ff)
         if args[1] == "commands":  # if '$help commands'
             embed.add_field(name="StreamBot Help commands", value="StreamBot Commands start with $.\nCommands are NOT case sensitive\nExisting commands are:\n\t$time\n\t$help (accepts command as parameter)\n\t$gif (accepts list as a parameter)")
-        elif args[1] == "time".upper() or args[1] == "$time":  # if '$help time' or '$help $time' entered
+        elif args[1] == "time" or args[1] == "$time":  # if '$help time' or '$help $time' entered
             embed.add_field(name="StreamBot Help time", value="Time shows you the time until the next livestream from NinjaNube Gaming.\nThis command is NOT case sensitive\nThis command has no parameters")
         elif args[1] == "gif" or args[1] == "$gif":  # if '$help gif' or '$help $gif' entered
             embed.add_field(name="StreamBot Help gif", value="Gif sends a random gif\nThis command is NOT case sensitive\nParameters: list\n\tList lists the links to the chosen gifs")
