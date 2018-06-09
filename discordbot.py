@@ -59,20 +59,20 @@ async def on_message(message):
     elif message.content.upper().startswith("$GIF"):
         args = message.content.split(" ")  # Makes parameter list
         args.append("end")
-        gifNum = len(urls)
+        gifNum = len(urls) - 1
         gif = randint(0, gifNum)
         embed = discord.Embed(title="GIF", color=0x059789)
         if args[1] == "list":
             embed.add_field(name="List of gif links that can be sent", value="\n".join(urls))
         else:
-            embed.add_field(name="Here\'s a random gif!", value="You got gif " + str(gif + 1) + "/" + str(gifNum))
+            embed.add_field(name="Here\'s a random gif!", value="You got gif " + str(gif + 1) + "/" + str(gifNum + 1))
             embed.set_image(url=urls[gif])
         await client.send_message(message.channel, embed=embed)
 
     elif message.content.upper().startswith("$INVITE"):
         invite = discord.Invite(max_age=0, server=message.server)
         embed = discord.Embed(title="INVITE LINK", color=0x8b8fa1)  # 8b8fa1
-        embed.add_field(name="This is the server\'s invite link", value="Expire Time: Infanite\nURL: " str(invite.url))
+        embed.add_field(name="This is the server\'s invite link", value="Expire Time: Infanite\nURL: " + str(invite.url))
         await client.send_message(message.channel, embed=embed)
 
     elif message.content.upper().startswith("$HELP"):
