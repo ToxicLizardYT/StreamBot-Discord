@@ -63,9 +63,8 @@ async def on_message(message):
         gifNum = len([name for name in os.listdir("./gifs") if os.path.isfile(os.path.join("./gifs", name))])
         gif = randint(1, gifNum)
         embed = discord.Embed(title="GIF", color=0x749dee)
-        embed.image().url = "./gifs/" + str(gif) + ".gif"
         #embed.add_field(name="Here\'s a random gif!", value="You got gif " + str(gif) + "/" + str(gifNum))
-        embed.set_image(url=str(embed.image.url))
+        embed.set_image(url="http://gph.is/2hxL3Vl")
         await client.send_message(message.channel, embed=embed)
 
     elif message.content.upper().startswith("$LIST"):
