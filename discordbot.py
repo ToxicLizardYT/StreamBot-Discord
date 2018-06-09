@@ -24,7 +24,7 @@ with open("swear.txt", "rt") as fp:
 # print(filter)
 
 
-def goth():
+async def goth():
     time = datetime.datetime.now(pytz.timezone("US/Central"))  # Gets time when the message was sent
     if time.minute % 5 == 0:
         embed = discord.Embed(title="GIF of the Hour", color=0x059789)
