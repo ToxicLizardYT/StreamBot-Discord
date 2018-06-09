@@ -1,4 +1,5 @@
 from discord.ext.commands import Bot
+import time as Time
 import datetime
 import random
 import discord
@@ -25,12 +26,13 @@ with open("swear.txt", "rt") as fp:
 
 def goth():
     time = datetime.datetime.now(pytz.timezone("US/Central"))  # Gets time when the message was sent
-    if time.minute == 0 and time.second == 1:
+    if time.minute % 5 == 0:
         embed = discord.Embed(title="GIF of the Hour", color=0x059789)
         embed.set_image(url=random.choice(urls))  # Displays gif
         # await client.send_message(discord.Object("454027523270115358"), embed=embed)
         # await client.send_message(discord.Object("454369180951511051"), embed=embed)
         client.send_message(discord.Object("454393067974426637"), embed=embed)
+        Time.sleep(60)
 
 
 @client.event
