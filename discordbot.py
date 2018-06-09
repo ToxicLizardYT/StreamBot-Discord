@@ -84,7 +84,7 @@ async def on_message(message):
         args = message.content.split(" ")
         args.append("end")
         if args[1] != "end":
-            author = client.message.author
+            author = message.author
             vc = author.voice_channel
             join = await client.join_voice_channel(vc)
             player = await join.create_ytdl_player(args[1])
