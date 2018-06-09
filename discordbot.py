@@ -18,10 +18,10 @@ urls = ["https://media.giphy.com/media/9pCESofHVLvcA/giphy.gif",
         "https://media.giphy.com/media/5UH4ZEelyBwwIW8E2k/giphy.gif",
         "https://media.giphy.com/media/26Ff0l4TARWjMTSKs/giphy.gif"]
 
-fp = open("swear.txt", "r")
-for line in fp:
-    filter.append(line.strip())
-
+fp = open("swear.txt", "r+")
+for line in enumerate(fp):
+    filter.append(line.rstrip())
+fp.close()
 
 @client.event
 async def on_ready():
