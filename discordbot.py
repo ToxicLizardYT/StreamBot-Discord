@@ -20,7 +20,7 @@ urls = ["https://media.giphy.com/media/9pCESofHVLvcA/giphy.gif",
 with open("swear.txt", "rt") as fp:
     filter = fp.readlines()
     filter = [x.strip() for x in filter]
-print(filter)
+# print(filter)
 
 
 @client.event
@@ -86,6 +86,14 @@ async def on_message(message):
         embed = discord.Embed(title="ERROR", color=0xff4444)  # ff4444
         embed.add_field(name="That command doesn\'t exist", value="Use $help for help")
         await client.send_message(message.channel, embed=embed)
+
+    elif time.hour % 1 == 0 and time.minute % 5 == 0:
+        time = datetime.datetime.now(pytz.timezone("US/Central"))
+        embed = discord.Embed(title="Gif of the Hour", color=0x059789)
+        embed.set_image(url=random.choice(urls))  # Displays gif
+        # await client.send_message(discord.Object("454027523270115358"), embed=embed)
+        # await client.send_message(discord.Object("454369180951511051"), embed=embed)
+        await client.send_message(discord.Object("454393067974426637"), embed=embed)
 
     else:
         contents = message.content.split(" ")
