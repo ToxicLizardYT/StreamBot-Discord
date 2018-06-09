@@ -37,6 +37,7 @@ async def background_loop():
 
 @client.event
 async def on_ready():
+    discord.opus.load_opus(self.opus_library)
     embed = discord.Embed(title="Updated!", color=0xBA00AA)
     await client.send_message(discord.Object("454027523270115358"), embed=embed)
     await client.send_message(discord.Object("454369180951511051"), embed=embed)
@@ -84,7 +85,6 @@ async def on_message(message):
         args = message.content.split(" ")
         args.append("end")
         if args[1] != "end":
-            discord.opus.load_opus()
             author = message.author
             vc = author.voice_channel
             join = await client.join_voice_channel(vc)
