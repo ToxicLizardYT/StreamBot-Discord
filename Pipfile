@@ -12,6 +12,7 @@ datetime = "*"
 pytz = "*"
 youtube_dl = "*"
 PyNaCl = "*"
+opuslib = "*"
 
 [requires]
 

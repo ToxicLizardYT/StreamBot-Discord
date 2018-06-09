@@ -1,8 +1,9 @@
 from discord.ext.commands import Bot
 import datetime
-import random
+import opuslib
 import discord
 import asyncio
+import random
 import pytz
 import os
 
@@ -37,7 +38,7 @@ async def background_loop():
 
 @client.event
 async def on_ready():
-    discord.opus.load_opus('opus')
+    discord.opus.load_opus(opuslib)
     embed = discord.Embed(title="Updated!", color=0xBA00AA)
     await client.send_message(discord.Object("454027523270115358"), embed=embed)
     await client.send_message(discord.Object("454369180951511051"), embed=embed)
