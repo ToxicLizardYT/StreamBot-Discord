@@ -24,7 +24,7 @@ with open("swear.txt", "rt") as fp:
 # print(filter)
 
 
-async def goth():
+async def background_loop():
     time = datetime.datetime.now(pytz.timezone("US/Central"))  # Gets time when the message was sent
     if time.minute % 5 == 0:
         embed = discord.Embed(title="GIF of the Hour", color=0x059789)
@@ -111,5 +111,5 @@ async def on_message(message):
                 embed.add_field(name="That word has been blacklisted", value="Common swear words or racial slurs have been banned")
                 await client.send_message(message.channel, embed=embed)
 
-client.loop.create_task(goth())
+client.loop.create_task(background_loop())
 client.run(str(os.environ.get('BOT_TOKEN')))
