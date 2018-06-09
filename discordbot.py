@@ -12,6 +12,10 @@ RapGod_id = "324332386219327488"
 filter = ['NIGGER', 'FAGGOT', 'GAY', 'FUCK', 'SHIT', 'DAMN', 'NIGGERFAGGOT', 'GODDAMN']
 
 
+urls = []
+
+
+
 @client.event
 async def on_ready():
     embed = discord.Embed(title="Updated!", color=0xBA00AA)
@@ -64,7 +68,7 @@ async def on_message(message):
         gif = randint(1, gifNum)
         embed = discord.Embed(title="GIF", color=0x749dee)
         #embed.add_field(name="Here\'s a random gif!", value="You got gif " + str(gif) + "/" + str(gifNum))
-        embed.set_image(url="http://gph.is/2hxL3Vl")
+        embed.set_image(url="https://media.giphy.com/media/26Ff0l4TARWjMTSKs/giphy.gif")
         await client.send_message(message.channel, embed=embed)
 
     elif message.content.upper().startswith("$LIST"):
