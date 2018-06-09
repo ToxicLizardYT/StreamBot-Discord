@@ -1,5 +1,6 @@
 from discord.ext.commands import Bot
 from datetime import datetime
+from random import randint
 import discord
 import pytz
 import os
@@ -60,6 +61,13 @@ async def on_message(message):
 
     elif message.content.upper().startswith("$ON") and message.author.id == RapGod_id:
         embed = discord.Embed(title="On!", color=0x00FF00)
+        await client.send_message(message.channel, embed=embed)
+
+    elif message.content.upper().startswith("$GIF"):
+        gifNum = len([name for name in os.listdir("./gifs") if os.path.isfile(os.path.join("./gifs", name))])
+        gif = randint(1, gifNum)
+        embed = discord.Embed(title="On!", color=0x00FF00)
+        embed.set_image(url=str(gif) + ".gif")
         await client.send_message(message.channel, embed=embed)
 
     elif message.content.upper().startswith("$LIST"):
