@@ -14,7 +14,7 @@ filter = ['NIGGER', 'FAGGOT', 'GAY', 'FUCK', 'SHIT', 'DAMN', 'NIGGERFAGGOT', 'GO
 
 @client.event
 async def on_ready():
-    embed = discord.Embed(title="On!", color=0x00FF00)
+    embed = discord.Embed(title="Updated!", color=0xBA00AA)
     await client.send_message(discord.Object("454027523270115358"), embed=embed)
     await client.send_message(discord.Object("454369180951511051"), embed=embed)
     await client.send_message(discord.Object("454393067974426637"), embed=embed)
@@ -57,10 +57,6 @@ async def on_message(message):
             embed.add_field(name="StreamBot help time", value="Time shows you the time until the next livestream from NinjaNube Gaming.\nThis command is NOT case sensitive\nThis command has no parameters")
         else:
             embed.add_field(name="StreamBot help", value="StreamBot commands start with $ to avoid accidental calls from other bot.\nWe don\'t use spaces or parameters in any command other than this one.\nTry \'$help $time\' or \'$help commands\'")
-        await client.send_message(message.channel, embed=embed)
-
-    elif message.content.upper().startswith("$ON") and message.author.id == RapGod_id:
-        embed = discord.Embed(title="On!", color=0x00FF00)
         await client.send_message(message.channel, embed=embed)
 
     elif message.content.upper().startswith("$GIF"):
