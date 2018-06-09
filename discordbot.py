@@ -34,7 +34,7 @@ async def background_loop():
             # await client.send_message(discord.Object("454027523270115358"), embed=embed)
             # await client.send_message(discord.Object("454369180951511051"), embed=embed)
             await client.send_message(discord.Object("454393067974426637"), embed=embed)
-            await asyncio.sleep(60)
+        await asyncio.sleep(60)
 
 
 @client.event
