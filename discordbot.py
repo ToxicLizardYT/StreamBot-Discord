@@ -27,6 +27,7 @@ with open("swear.txt", "rt") as fp:
 async def background_loop():
     time = datetime.datetime.now(pytz.timezone("US/Central"))  # Gets time when the message was sent
     if time.minute % 5 == 0:
+        print(str(time.minute))
         embed = discord.Embed(title="GIF of the Hour", color=0x059789)
         embed.set_image(url=random.choice(urls))  # Displays gif
         # await client.send_message(discord.Object("454027523270115358"), embed=embed)
