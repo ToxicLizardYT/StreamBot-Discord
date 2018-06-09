@@ -10,7 +10,6 @@ client = Bot(command_prefix="$")
 
 RapGod_id = "324332386219327488"
 
-filter = []
 urls = ["https://media.giphy.com/media/9pCESofHVLvcA/giphy.gif",
         "https://media.giphy.com/media/iAQFuaZSrDnBuVCdZO/giphy.gif",
         "https://media.discordapp.net/attachments/291284109232308226/454794855021805578/raw.gif",
@@ -18,9 +17,9 @@ urls = ["https://media.giphy.com/media/9pCESofHVLvcA/giphy.gif",
         "https://media.giphy.com/media/5UH4ZEelyBwwIW8E2k/giphy.gif",
         "https://media.giphy.com/media/26Ff0l4TARWjMTSKs/giphy.gif"]
 
-with open("swear.txt", "rb") as fp:
+with open("swear.txt", "t") as fp:
     filter = fp.readlines()
-filter = [x.strip() for x in filter]
+    filter = [x. for x in filter]
 print(filter)
 
 
