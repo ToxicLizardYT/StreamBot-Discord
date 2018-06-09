@@ -113,5 +113,5 @@ async def on_message(message):
                 embed.add_field(name="That word has been blacklisted", value="Common swear words or racial slurs have been banned")
                 await client.send_message(message.channel, embed=embed)
 
-client.loop.create_task()
+client.loop.create_task(background_loop())
 client.run(str(os.environ.get('BOT_TOKEN')))
