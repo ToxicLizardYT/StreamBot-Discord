@@ -81,7 +81,7 @@ async def on_message(message):
         await client.send_message(message.channel, embed=embed)
 
     elif message.content.upper().startswith("$INFO"):
-        args = messge.content.split(" ")
+        args = message.content.split(" ")
         args.append("end")
         embed = discord.Embed(title="User Info", color=0x50affb)
         if args[1] != "end":
