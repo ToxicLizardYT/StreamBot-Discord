@@ -70,7 +70,7 @@ async def on_message(message):
         await client.send_message(message.channel, embed=embed)
 
     elif message.content.upper().startswith("$INVITE"):
-        invite = discord.Invite(max_age=0, server=message.server, inviter=message.author, max_uses=10, created_at=datetime.datetime(), revoked=False, temporary=False)
+        invite = discord.Invite(max_age=0, server=message.server, inviter=message.author, max_uses=10, revoked=False, temporary=False)
         embed = discord.Embed(title="INVITE LINK", color=0x8b8fa1)  # 8b8fa1
         embed.add_field(name="This is the server\'s invite link", value="Expire Time: No Limit\nMax Uses: 10\nURL: " + str(invite.url))
         await client.send_message(message.channel, embed=embed)
