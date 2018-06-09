@@ -8,7 +8,7 @@ import os
 
 Client = discord.Client()
 client = Bot(command_prefix="$")
-server = discord.Server()
+server = discord.Server(id="454393067974426634")
 
 RapGod_id = "324332386219327488"
 
