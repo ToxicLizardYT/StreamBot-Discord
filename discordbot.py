@@ -23,6 +23,16 @@ with open("swear.txt", "rt") as fp:
 # print(filter)
 
 
+def goth():
+    time = datetime.datetime.now(pytz.timezone("US/Central"))  # Gets time when the message was sent
+    if time.minute == 0 and time.second == 1:
+        embed = discord.Embed(title="GIF of the Hour", color=0x059789)
+        embed.set_image(url=random.choice(urls))  # Displays gif
+        # await client.send_message(discord.Object("454027523270115358"), embed=embed)
+        # await client.send_message(discord.Object("454369180951511051"), embed=embed)
+        await client.send_message(discord.Object("454393067974426637"), embed=embed)
+
+
 @client.event
 async def on_ready():
     embed = discord.Embed(title="Updated!", color=0xBA00AA)
@@ -99,4 +109,5 @@ async def on_message(message):
                 embed.add_field(name="That word has been blacklisted", value="Common swear words or racial slurs have been banned")
                 await client.send_message(message.channel, embed=embed)
 
+client.loop.create_task(goth())
 client.run(str(os.environ.get('BOT_TOKEN')))
