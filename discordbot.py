@@ -20,8 +20,8 @@ urls = ["https://media.giphy.com/media/9pCESofHVLvcA/giphy.gif",
 
 with open("swear.txt", "rb") as fp:
     filter = fp.readlines()
-    print(filter)
 filter = [x.strip() for x in filter]
+print(filter)
 
 
 @client.event
