@@ -85,13 +85,14 @@ async def on_message(message):
     elif message.content.upper().startswith("$PLAY"):
         args = message.content.split(" ")
         args.append("end")
+        author = message.author
+        vc = author.voice_channel
+        join = await client.join_voice_channel(vc)
         if args[1] != "end":
-            author = message.author
-            vc = author.voice_channel
-            join = await client.join_voice_channel(vc)
             player = await join.create_ytdl_player(args[1])
-            player.start()
-
+        else:
+            player = await join.create_ytdl_player("https://www.youtube.com/watch?v=8QrGbDjNcNw")
+        player.start()
     elif message.content.upper().startswith("$HELP"):
         args = message.content.split(" ")  # Makes parameter list
         args.append("end")  # Adds 'end' to the end of the list to prevent errors
