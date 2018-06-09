@@ -1,5 +1,5 @@
 from discord.ext.commands import Bot
-from datetime import datetime
+import datetime
 from random import randint
 import discord
 import pytz
@@ -32,7 +32,7 @@ async def on_ready():
 @client.event
 async def on_message(message):
     if message.content.upper().startswith("$TIME"):
-        time = datetime.now(pytz.timezone("US/Central"))  # Gets time when the message was sent
+        time = datetime.datetime.now(pytz.timezone("US/Central"))  # Gets time when the message was sent
         hours = 19 - time.hour - 1  # Defines Hour
         if hours < 0:
             hours = 19 + 4 - time.hour % 19  # Redefines hour if hour is less than 0 (past 7pm cdt)
@@ -70,7 +70,7 @@ async def on_message(message):
         await client.send_message(message.channel, embed=embed)
 
     elif message.content.upper().startswith("$INVITE"):
-        invite = discord.Invite(max_age=0, server=message.server, inviter=message.author, max_uses=10, created_at=datetime.now, revoked=False, temporary=False)
+        invite = discord.Invite(max_age=0, server=message.server, inviter=message.author, max_uses=10, created_at=datetime.datetime, revoked=False, temporary=False)
         embed = discord.Embed(title="INVITE LINK", color=0x8b8fa1)  # 8b8fa1
         embed.add_field(name="This is the server\'s invite link", value="Expire Time: No Limit\nMax Uses: 10\nURL: " + str(invite.url))
         await client.send_message(message.channel, embed=embed)
