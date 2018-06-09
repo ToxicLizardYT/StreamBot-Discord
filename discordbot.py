@@ -19,7 +19,6 @@ urls = ["https://media.giphy.com/media/9pCESofHVLvcA/giphy.gif",
 
 with open("swear.txt", "t") as fp:
     filter = fp.readlines()
-    filter = [x. for x in filter]
 print(filter)
 
 
