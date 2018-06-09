@@ -32,7 +32,7 @@ async def background_loop():
             await client.send_message(discord.Object("454027523270115358"), embed=embed)
             await client.send_message(discord.Object("454369180951511051"), embed=embed)
             await client.send_message(discord.Object("454393067974426637"), embed=embed)
-        await asyncio.sleep(1800)
+        await asyncio.sleep(60)
 
 
 @client.event
@@ -78,6 +78,14 @@ async def on_message(message):
             embed.add_field(name="List of gif links that can be sent", value="\n".join(urls))  # Shows urls of all gifs
         else:
             embed.set_image(url=random.choice(urls))  # Displays gif
+        await client.send_message(message.channel, embed=embed)
+
+    elif message.content.upper().startswith("$INFO"):
+        args = messge.content.split(" ")
+        args.append("end")
+        embed = discord.Embed(title="User Info", color=0x50affb)
+        if args[1] != "end":
+            embed.add_field(name="User ID:" value="\t" + str(args[1]))
         await client.send_message(message.channel, embed=embed)
 
     elif message.content.upper().startswith("$HELP"):
