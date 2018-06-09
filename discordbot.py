@@ -18,7 +18,7 @@ urls = ["https://media.giphy.com/media/9pCESofHVLvcA/giphy.gif",
         "https://media.giphy.com/media/5UH4ZEelyBwwIW8E2k/giphy.gif",
         "https://media.giphy.com/media/26Ff0l4TARWjMTSKs/giphy.gif"]
 
-with open("swear.txt") as fp:
+with open("swear.txt", "rb") as fp:
     filter = fp.readlines()
 filter = [x.strip() for x in filter]
 
