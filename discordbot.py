@@ -37,7 +37,7 @@ async def background_loop():
 
 @client.event
 async def on_ready():
-    discord.opus.load_opus(self.opus_library)
+    discord.opus.load_opus('opus')
     embed = discord.Embed(title="Updated!", color=0xBA00AA)
     await client.send_message(discord.Object("454027523270115358"), embed=embed)
     await client.send_message(discord.Object("454369180951511051"), embed=embed)
