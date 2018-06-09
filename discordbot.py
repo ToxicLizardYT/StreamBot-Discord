@@ -77,16 +77,15 @@ async def on_message(message):
         args = message.content.split(" ")  # Makes parameter list
         args.append("end")
         if args[1] != "end":
-            if args[1].startswith('@'):
-                global userName
-                global responded
-                responded = False
-                userName = args[1]
-                while not responded:
-                    await client.send_message(message.channel, "<" + str(userName) + ">")
+            global userName
+            global responded
+            responded = False
+            userName = args[1]
+            while not responded:
+                await client.send_message(message.channel, "<@" + str(userName) + ">")
 
-            else:
-                await client.send_message(message.channel, "Please tag the user you want to spam")
+        else:
+            await client.send_message(message.channel, "Please tag the user you want to spam")
 
     elif message.content.upper().startswith("$HELP"):
         args = message.content.split(" ")  # Makes parameter list
