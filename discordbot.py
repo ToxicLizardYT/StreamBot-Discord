@@ -82,7 +82,7 @@ async def on_message(message):
             responded = False
             userName = args[1]
             while not responded:
-                await client.send_message(message.channel, "<@" + str(userName) + ">")
+                await client.send_message(message.channel, str(userName))
 
         else:
             await client.send_message(message.channel, "Please tag the user you want to spam")
@@ -108,6 +108,7 @@ async def on_message(message):
 
     elif message.author.id == userName:
         responded = True
+        userName = None
 
     else:
         contents = message.content.split(" ")
