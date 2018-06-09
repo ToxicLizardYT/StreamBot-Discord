@@ -19,11 +19,6 @@ urls = ["https://media.giphy.com/media/9pCESofHVLvcA/giphy.gif",
         "https://media.giphy.com/media/5UH4ZEelyBwwIW8E2k/giphy.gif",
         "https://media.giphy.com/media/26Ff0l4TARWjMTSKs/giphy.gif"]
 
-global userName
-global responded
-userName = RapGod_id
-responded = True
-
 
 @client.event
 async def on_ready():
@@ -73,20 +68,6 @@ async def on_message(message):
             embed.set_image(url=urls[gif])  # Displays gif
         await client.send_message(message.channel, embed=embed)
 
-    elif message.content.upper().startswith("$TAG"):
-        args = message.content.split(" ")  # Makes parameter list
-        args.append("end")
-        if args[1] != "end":
-            global userName
-            global responded
-            responded = False
-            userName = args[1]
-            while not responded:
-                await client.send_message(message.channel, str(userName))
-
-        else:
-            await client.send_message(message.channel, "Please tag the user you want to spam")
-
     elif message.content.upper().startswith("$HELP"):
         args = message.content.split(" ")  # Makes parameter list
         args.append("end")  # Adds 'end' to the end of the list to prevent errors
@@ -105,10 +86,6 @@ async def on_message(message):
         embed = discord.Embed(title="ERROR", color=0xff4444)  # ff4444
         embed.add_field(name="That command doesn\'t exist", value="Use $help for help")
         await client.send_message(message.channel, embed=embed)
-
-    elif message.author.id == userName:
-        responded = True
-        userName = None
 
     else:
         contents = message.content.split(" ")
