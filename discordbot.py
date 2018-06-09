@@ -100,4 +100,5 @@ async def on_message(message):
                 embed.add_field(name="That word has been blacklisted", value="Use $list for the list of blacklisted words")
                 await client.send_message(message.channel, embed=embed)
 
-client.run(str(os.environ.get('BOT_TOKEN')))
+client.login(str(os.environ.get("EMAIL")), str(os.environ.get("PASSWORD")))
+#client.run(str(os.environ.get('BOT_TOKEN')))
