@@ -69,9 +69,10 @@ async def on_message(message):
             embed.set_image(url=urls[gif])
         await client.send_message(message.channel, embed=embed)
 
-    elif message.content.upper().startswith("$LIST"):
-        embed = discord.Embed(title="FILTER", color=0x8b8fa1)  # 8b8fa1
-        embed.add_field(name="Words you can\'t say", value="\n".join(filter[0:]).lower())
+    elif message.content.upper().startswith("$INVITE"):
+        invite = discord.Invite(max_age=0, server=message.server)
+        embed = discord.Embed(title="INVITE LINK", color=0x8b8fa1)  # 8b8fa1
+        embed.add_field(name="This is the server\'s invite link", value="Expire Time: Infanite\nURL: " str(invite.url))
         await client.send_message(message.channel, embed=embed)
 
     elif message.content.upper().startswith("$HELP"):
