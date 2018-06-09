@@ -62,7 +62,7 @@ async def on_message(message):
         gifNum = len(urls)
         gif = randint(0, gifNum)
         embed = discord.Embed(title="GIF", color=0x059789)
-        if args[1] == "LIST".upper():
+        if args[1] == "list":
             embed.add_field(name="List of gif links that can be sent", value="\n\t".join(urls))
         else:
             embed.add_field(name="Here\'s a random gif!", value="You got gif " + str(gif + 1) + "/" + str(gifNum))
@@ -78,11 +78,11 @@ async def on_message(message):
         args = message.content.split(" ")  # Makes parameter list
         args.append("end")  # Adds 'end' to the end of the list to prevent errors
         embed = discord.Embed(title="Help", color=0x15f3ff)
-        if args[1] == "COMMANDS".upper():
+        if args[1] == "commands":
             embed.add_field(name="StreamBot help commands", value="StreamBot Commands start with $.\nCommands are NOT case sensitive\nExisting commands are:\n\t$time\n\t$help (accepts command as parameter)\n\t$gif (accepts list as a parameter)")
-        elif args[1] == "TIME".upper() or args[1] == "$TIME".upper():
+        elif args[1] == "time".upper() or args[1] == "$time":
             embed.add_field(name="StreamBot help time", value="Time shows you the time until the next livestream from NinjaNube Gaming.\nThis command is NOT case sensitive\nThis command has no parameters")
-        elif args[1] == "GIF".upper() or args[1] == "$GIF".upper():
+        elif args[1] == "gif" or args[1] == "$gif":
             embed.add_field(name="StreamBot help gif", value="Gif sends a random gif\nThis command is NOT case sensitive\nParameters: list\n\tList lists the links to the chosen gifs")
         else:
             embed.add_field(name="StreamBot help", value="StreamBot commands start with $ to avoid accidental calls from other bot.\nTry \'$help $time\' or \'$help commands\'")
