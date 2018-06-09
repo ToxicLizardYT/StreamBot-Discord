@@ -1,5 +1,4 @@
 from discord.ext.commands import Bot
-import time
 import datetime
 import random
 import discord
@@ -26,15 +25,16 @@ with open("swear.txt", "rt") as fp:
 
 
 async def background_loop():
-    Time = datetime.datetime.now(pytz.timezone("US/Central"))  # Gets time when the message was sent
-    print(str(Time.minute))
-    if Time.minute % 5 == 0:
-        embed = discord.Embed(title="GIF of the Hour", color=0x059789)
-        embed.set_image(url=random.choice(urls))  # Displays gif
-        # await client.send_message(discord.Object("454027523270115358"), embed=embed)
-        # await client.send_message(discord.Object("454369180951511051"), embed=embed)
-        await client.send_message(discord.Object("454393067974426637"), embed=embed)
-        await asyncio.sleep(60)
+    while True:
+        Time = datetime.datetime.now(pytz.timezone("US/Central"))  # Gets time when the message was sent
+        print(str(Time.minute))
+        if Time.minute % 5 == 0:
+            embed = discord.Embed(title="GIF of the Hour", color=0x059789)
+            embed.set_image(url=random.choice(urls))  # Displays gif
+            # await client.send_message(discord.Object("454027523270115358"), embed=embed)
+            # await client.send_message(discord.Object("454369180951511051"), embed=embed)
+            await client.send_message(discord.Object("454393067974426637"), embed=embed)
+            await asyncio.sleep(60)
 
 
 @client.event
