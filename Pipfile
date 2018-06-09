@@ -11,6 +11,7 @@ asyncio = "*"
 datetime = "*"
 pytz = "*"
 youtube_dl = "*"
+PyNaCl = "*"
 
 [requires]
 
