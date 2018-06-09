@@ -31,7 +31,7 @@ async def background_loop():
         embed.set_image(url=random.choice(urls))  # Displays gif
         # await client.send_message(discord.Object("454027523270115358"), embed=embed)
         # await client.send_message(discord.Object("454369180951511051"), embed=embed)
-        client.send_message(discord.Object("454393067974426637"), embed=embed)
+        await client.send_message(discord.Object("454393067974426637"), embed=embed)
         Time.sleep(60)
 
 
