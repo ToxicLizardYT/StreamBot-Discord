@@ -9,7 +9,7 @@ Client = discord.Client()
 client = Bot(command_prefix="$")
 
 RapGod_id = "324332386219327488"
-filter = ['NIGGER', 'FAGGOT', 'GAY', 'FUCK', 'SHIT', 'DAMN', 'NIGGERFAGGOT', 'GODDAMN']
+filter = ['NIGGER', 'FAGGOT', 'GAY', 'FUCK', 'SHIT', 'DAMN', 'NIGGERFAGGOT', 'GODDAMN', 'ASS']
 
 
 urls = ["https://media.giphy.com/media/9pCESofHVLvcA/giphy.gif",
@@ -59,27 +59,27 @@ async def on_message(message):
     elif message.content.upper().startswith("$GIF"):
         args = message.content.split(" ")  # Makes parameter list
         args.append("end")
-        gifNum = len(urls) - 1
-        gif = randint(0, gifNum)
+        gifNum = len(urls)  # Gets number of gifs
+        gif = randint(0, gifNum - 1)  # Gets random gif
         embed = discord.Embed(title="GIF", color=0x059789)
-        if args[1] == "list":
-            embed.add_field(name="List of gif links that can be sent", value="\n".join(urls))
+        if args[1] == "list":  # if '$gif list' is entered
+            embed.add_field(name="List of gif links that can be sent", value="\n".join(urls))  # Shows urls of all gifs
         else:
             embed.add_field(name="Here\'s a random gif!", value="You got gif " + str(gif + 1) + "/" + str(gifNum + 1))
-            embed.set_image(url=urls[gif])
+            embed.set_image(url=urls[gif])  # Displays gif
         await client.send_message(message.channel, embed=embed)
 
     elif message.content.upper().startswith("$HELP"):
         args = message.content.split(" ")  # Makes parameter list
         args.append("end")  # Adds 'end' to the end of the list to prevent errors
         embed = discord.Embed(title="Help", color=0x15f3ff)
-        if args[1] == "commands":
+        if args[1] == "commands":  # if '$help commands'
             embed.add_field(name="StreamBot help commands", value="StreamBot Commands start with $.\nCommands are NOT case sensitive\nExisting commands are:\n\t$time\n\t$help (accepts command as parameter)\n\t$gif (accepts list as a parameter)")
-        elif args[1] == "time".upper() or args[1] == "$time":
+        elif args[1] == "time".upper() or args[1] == "$time":  # if '$help time' or '$help $time' entered
             embed.add_field(name="StreamBot help time", value="Time shows you the time until the next livestream from NinjaNube Gaming.\nThis command is NOT case sensitive\nThis command has no parameters")
-        elif args[1] == "gif" or args[1] == "$gif":
+        elif args[1] == "gif" or args[1] == "$gif":  # if '$help gif' or '$help $gif' entered
             embed.add_field(name="StreamBot help gif", value="Gif sends a random gif\nThis command is NOT case sensitive\nParameters: list\n\tList lists the links to the chosen gifs")
-        else:
+        else:  # if '$help' entered
             embed.add_field(name="StreamBot help", value="StreamBot commands start with $ to avoid accidental calls from other bot.\nTry \'$help $time\' or \'$help commands\'")
         await client.send_message(message.channel, embed=embed)
 
@@ -93,11 +93,11 @@ async def on_message(message):
         for word in contents:
             if word.upper() in filter:
                 try:
-                    await client.delete_message(message)  # Detects message from Mee6 bot announcing live and replaces with StreamBot live announcement
-                except discord.errors.Forbidden:
+                    await client.delete_message(message)  # Deletes message if it contains a banned word
+                except discord.errors.Forbidden:  # Not enough permissions
                     await client.send_message(message.channel, "***Missing Permissions***")
                 embed = discord.Embed(title="Watch it!", color=0x000000)  # 000000
-                embed.add_field(name="That word has been blacklisted", value="Use $list for the list of blacklisted words")
+                embed.add_field(name="That word has been blacklisted", value="")
                 await client.send_message(message.channel, embed=embed)
 
 client.run(str(os.environ.get('BOT_TOKEN')))
