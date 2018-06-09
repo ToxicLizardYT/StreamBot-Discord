@@ -69,12 +69,6 @@ async def on_message(message):
             embed.set_image(url=urls[gif])
         await client.send_message(message.channel, embed=embed)
 
-    elif message.content.upper().startswith("$INVITE"):
-        invite = discord.Client.create_invite(self, destination=message.server, max_age=0, max_uses=10, unique=False)
-        embed = discord.Embed(title="INVITE LINK", color=0x8b8fa1)  # 8b8fa1
-        embed.add_field(name="This is the server\'s invite link", value="Expire Time: No Limit\nMax Uses: 10\nURL: " + str(invite))
-        await client.send_message(message.channel, embed=embed)
-
     elif message.content.upper().startswith("$HELP"):
         args = message.content.split(" ")  # Makes parameter list
         args.append("end")  # Adds 'end' to the end of the list to prevent errors
