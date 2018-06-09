@@ -9,7 +9,7 @@ Client = discord.Client()
 client = Bot(command_prefix="$")
 
 RapGod_id = "324332386219327488"
-filter = ['NIGGER', 'FAGGOT', 'GAY', 'FUCK', 'SHIT', 'DAMN', 'NIGGERFAGGOT', 'GODDAMN', 'ASS']
+filter = ['NIGGER', 'FAGGOT', 'CUNT', 'GAY', 'FUCK', 'SHIT', 'DAMN', 'NIGGERFAGGOT', 'GODDAMN', 'ASS', 'PENIS', 'VAGINA']
 
 
 urls = ["https://media.giphy.com/media/9pCESofHVLvcA/giphy.gif",
@@ -97,7 +97,7 @@ async def on_message(message):
                 except discord.errors.Forbidden:  # Not enough permissions
                     await client.send_message(message.channel, "***Missing Permissions***")
                 embed = discord.Embed(title="Watch it!", color=0x000000)  # 000000
-                embed.add_field(name="That word has been blacklisted", value="")
+                embed.add_field(name="That word has been blacklisted", value="Common swear words or racial slurs have been banned")
                 await client.send_message(message.channel, embed=embed)
 
 client.run(str(os.environ.get('BOT_TOKEN')))
