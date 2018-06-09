@@ -84,6 +84,7 @@ async def on_message(message):
         args = message.content.split(" ")
         args.append("end")
         if args[1] != "end":
+            discord.opus.load_opus()
             author = message.author
             vc = author.voice_channel
             join = await client.join_voice_channel(vc)
