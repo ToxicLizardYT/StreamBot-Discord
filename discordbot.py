@@ -12,7 +12,12 @@ RapGod_id = "324332386219327488"
 filter = ['NIGGER', 'FAGGOT', 'GAY', 'FUCK', 'SHIT', 'DAMN', 'NIGGERFAGGOT', 'GODDAMN']
 
 
-urls = []
+urls = ["https://media.giphy.com/media/9pCESofHVLvcA/giphy.gif",
+        "https://media.giphy.com/media/iAQFuaZSrDnBuVCdZO/giphy.gif",
+        "https://media.discordapp.net/attachments/291284109232308226/454794855021805578/raw.gif",
+        "https://media.giphy.com/media/5Yl6uqC0YQHejTKi7Q/giphy.gif",
+        "https://media.giphy.com/media/5UH4ZEelyBwwIW8E2k/giphy.gif",
+        "https://media.giphy.com/media/26Ff0l4TARWjMTSKs/giphy.gif"]
 
 
 
@@ -64,11 +69,11 @@ async def on_message(message):
         await client.send_message(message.channel, embed=embed)
 
     elif message.content.upper().startswith("$GIF"):
-        gifNum = len([name for name in os.listdir("./gifs") if os.path.isfile(os.path.join("./gifs", name))])
+        gifNum = len(urls)
         gif = randint(1, gifNum)
-        embed = discord.Embed(title="GIF", color=0x749dee)
-        #embed.add_field(name="Here\'s a random gif!", value="You got gif " + str(gif) + "/" + str(gifNum))
-        embed.set_image(url="https://media.giphy.com/media/26Ff0l4TARWjMTSKs/giphy.gif")
+        embed = discord.Embed(title="GIF", color=0x059789)
+        embed.add_field(name="Here\'s a random gif!", value="You got gif " + str(gif) + "/" + str(gifNum))
+        embed.set_image(url=urls[gif])
         await client.send_message(message.channel, embed=embed)
 
     elif message.content.upper().startswith("$LIST"):
