@@ -11,12 +11,19 @@ client = Bot(command_prefix="$")
 
 RapGod_id = "324332386219327488"
 
-urls = ["https://media.giphy.com/media/9pCESofHVLvcA/giphy.gif",
+urls = [
+        "https://media.giphy.com/media/9pCESofHVLvcA/giphy.gif",
         "https://media.giphy.com/media/iAQFuaZSrDnBuVCdZO/giphy.gif",
         "https://media.discordapp.net/attachments/291284109232308226/454794855021805578/raw.gif",
         "https://media.giphy.com/media/5Yl6uqC0YQHejTKi7Q/giphy.gif",
         "https://media.giphy.com/media/5UH4ZEelyBwwIW8E2k/giphy.gif",
-        "https://media.giphy.com/media/26Ff0l4TARWjMTSKs/giphy.gif"]
+        "https://media.giphy.com/media/26Ff0l4TARWjMTSKs/giphy.gif",
+        "https://media.giphy.com/media/o7BebTgj44jmw/giphy.gif",
+        "https://media.giphy.com/media/l396O8kn1qbPcb4ha/giphy.gif",
+        "https://media.giphy.com/media/9r3mtPn0arLJ227VjZ/giphy.gif",
+        "https://media.giphy.com/media/xT0xeP5zQrtRH3v8KA/giphy.gif",
+        "https://media.giphy.com/media/103t71VKmtY1UY/giphy.gif",
+        ]
 
 with open("swear.txt", "rt") as fp:
     filter = fp.readlines()
