@@ -86,7 +86,7 @@ async def on_message(message):
         print(str(args[1]))
         embed = discord.Embed(title="User Info", color=0x50affb)
         if args[1] != "end":
-            for member in message.server.get_all_members():
+            for member in message.server:
                 if str("<@" + member.id + ">") == args[1]:
                     embed.add_field(name="User's ID:", value=str(member.id))
                     embed.add_field(name="Current Game:", value=str(member.game))
