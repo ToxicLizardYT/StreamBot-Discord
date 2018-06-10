@@ -112,7 +112,7 @@ async def on_message(message):
         args.append("end")  # Adds 'end' to the end of the list to prevent errors
         embed = discord.Embed(title="Help", color=0x15f3ff)
         if args[1] == "commands":  # if '$help commands'
-            embed.add_field(name="StreamBot Help commands", value="StreamBot Commands start with $.\nCommands are NOT case sensitive\nExisting commands are:\n\t$time\n\t$help (accepts command as parameter)\n\t$gif (accepts list as a parameter)")
+            embed.add_field(name="StreamBot Help commands", value="StreamBot Commands start with $.\nCommands are NOT case sensitive\nExisting commands are:\n\t$time\n\t$help (accepts command as parameter)\n\t$gif (accepts list as a parameter)\n\t$info (must tag a player)")
         elif args[1] == "time" or args[1] == "$time":  # if '$help time' or '$help $time' entered
             embed.add_field(name="StreamBot Help time", value="Time shows you the time until the next livestream from NinjaNube Gaming.\nThis command is NOT case sensitive\nThis command has no parameters")
         elif args[1] == "gif" or args[1] == "$gif":  # if '$help gif' or '$help $gif' entered
