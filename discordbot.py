@@ -83,6 +83,7 @@ async def on_message(message):
     elif message.content.upper().startswith("$INFO"):
         args = message.content.split(" ")
         args.append("end")
+        print(str(args[1]))
         embed = discord.Embed(title="User Info", color=0x50affb)
         if args[1] != "end":
             for member in client.get_all_members():
