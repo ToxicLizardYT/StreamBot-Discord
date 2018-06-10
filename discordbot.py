@@ -23,7 +23,8 @@ urls = [
         "https://media.giphy.com/media/9r3mtPn0arLJ227VjZ/giphy.gif",
         "https://media.giphy.com/media/xT0xeP5zQrtRH3v8KA/giphy.gif",
         "https://media.giphy.com/media/103t71VKmtY1UY/giphy.gif",
-        ]
+        "https://media.giphy.com/media/3osBLqTeJNPToFnh6M/giphy.gif"
+    ]
 
 with open("swear.txt", "rt") as fp:
     filter = fp.readlines()
@@ -95,6 +96,9 @@ async def on_message(message):
         embed = discord.Embed(title="GIF", color=0x059789)
         if args[1] == "list":  # if '$gif list' is entered
             embed.add_field(name="List of gif links that can be sent", value="\n".join(urls))  # Shows urls of all gifs
+        elif args[1] == "all":
+            for gif in urls:
+                embed.set_image(url=str(gif))
         else:
             embed.set_image(url=random.choice(urls))  # Displays gif
         await client.send_message(message.channel, embed=embed)
@@ -123,7 +127,7 @@ async def on_message(message):
         elif args[1] == "time" or args[1] == "$time":  # if '$help time' or '$help $time' entered
             embed.add_field(name="StreamBot Help time", value="Time shows you the time until the next livestream from NinjaNube Gaming.\nThis command is NOT case sensitive\nThis command has no parameters")
         elif args[1] == "gif" or args[1] == "$gif":  # if '$help gif' or '$help $gif' entered
-            embed.add_field(name="StreamBot Help gif", value="Gif sends a random gif\nThis command is NOT case sensitive\nParameters: list\n\tList lists the links to the chosen gifs")
+            embed.add_field(name="StreamBot Help gif", value="Gif sends a random gif\nThis command is NOT case sensitive\nParameters: list, all\n\tList lists the links to the chosen gifs\n\tAll shows all possible gifs. Mainly used for debugging")
         elif args[1] == "info" or args[1] == "$info":  # if '$help info' or '$help $info' entered
             embed.add_field(name="StreamBot Help info", value="Info sends the tagged user's information\nThis command is NOT case sensitive\nParameters: tag a user\n\tTagging makes the command work")
         else:  # if '$help' entered
