@@ -85,10 +85,13 @@ async def on_message(message):
         args.append("end")
         embed = discord.Embed(title="User Info", color=0x50affb)
         if args[1] != "end":
-            embed.add_field(name="User ID:", value="\t \\" + str(args[1]).rstrip("<").rstrip("@").rstrip(">"))
-            embed.add_field(name="Current Game:", value="\t" + str(message.server.get_member(args[1])))
-
-            # embed.add_field(name="User ID:", value=str(client.get_user_info(args[1])))
+            for member in client.get_all_members():
+                if member.id == args[1]:
+                    embed.add_field(name="User ID:", value=str(member.id))
+                    embed.add_field(name="Current Game:", value=str(member.game), inline=False)
+                    embed.add_field(name="Username: ", value=str(member.name), inline=False)
+                else:
+                    embed.add_field(name="No member tagged", value="Please tag a member when using this function")
         await client.send_message(message.channel, embed=embed)
 
     elif message.content.upper().startswith("$HELP"):
