@@ -44,6 +44,17 @@ async def on_ready():
 
 
 @client.event
+async def on_member_join(member):
+    embed = discord.Embed(name="Welcome", color=0xff0080)
+    if str(member.server.id) == "454393067974426634":
+        await client.send_messge(discord.Object("455197231050522645"), embed=embed)
+    elif str(member.server.id) == "395827123618840576":
+        await client.send_messge(discord.Object("454395821052657685"), embed=embed)
+    elif str(member.server.id) == "396673653129084939":
+        await client.send_messge(discord.Object("396673653129084941"), embed=embed)
+
+
+@client.event
 async def on_message(message):
     Time = datetime.datetime.now(pytz.timezone("US/Central"))  # Gets time when the message was sent
     if message.content.upper().startswith("$TIME"):
@@ -90,7 +101,7 @@ async def on_message(message):
                     embed.add_field(name="User's ID:", value=str(member.id))
                     embed.add_field(name="Current Game:", value=str(member.game))
                     embed.add_field(name="Username:", value=str(member.name))
-                    embed.add_field(name="User's iscriminator:", value=str(member.discriminator))
+                    embed.add_field(name="User's Discriminator:", value=str(member.discriminator))
         else:
             embed.add_field(name="No member tagged", value="Please tag a member when using this function")
         await client.send_message(message.channel, embed=embed)
