@@ -8,7 +8,6 @@ import os
 
 Client = discord.Client()
 client = Bot(command_prefix="$")
-server = discord.Server(id="454393067974426634")
 
 RapGod_id = "324332386219327488"
 
@@ -87,7 +86,7 @@ async def on_message(message):
         embed = discord.Embed(title="User Info", color=0x50affb)
         if args[1] != "end":
             embed.add_field(name="User ID:", value="\t \\" + str(args[1]).rstrip("<").rstrip("@").rstrip(">"))
-            embed.add_field(name="Current Game:", value="\t" + str(server.get_member(args[1]).game))
+            embed.add_field(name="Current Game:", value="\t" + str(discord.Server().get_member(args[1])))
 
             # embed.add_field(name="User ID:", value=str(client.get_user_info(args[1])))
         await client.send_message(message.channel, embed=embed)
