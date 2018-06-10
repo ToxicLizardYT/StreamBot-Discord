@@ -95,7 +95,7 @@ async def on_message(message):
         args.append("end")
         embed = discord.Embed(title="GIF", color=0x059789)
         if args[1] == "list":  # if '$gif list' is entered
-            embed.add_field(name="List of gif links that can be sent", value="\n".join(urls) + " " + str(len(urls)))  # Shows urls of all gifs
+            embed.add_field(name="List of gif links that can be sent", value="\n".join(urls) + "")  # Shows urls of all gifs
         else:
             embed.set_image(url=random.choice(urls))  # Displays gif
         await client.send_message(message.channel, embed=embed)
