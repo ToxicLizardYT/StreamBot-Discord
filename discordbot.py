@@ -45,7 +45,8 @@ async def on_ready():
 
 @client.event
 async def on_member_join(member):
-    embed = discord.Embed(name="Welcome", color=0xff0080)
+    embed = discord.Embed(name="Welcome!", color=0xff0080)
+    embed.add_field(name="Welcome to the server!", value="try \'$help commands\' for a list of commands")
     if str(member.server.id) == "454393067974426634":
         await client.send_messge(discord.Object("455197231050522645"), embed=embed)
     elif str(member.server.id) == "395827123618840576":
@@ -116,6 +117,8 @@ async def on_message(message):
             embed.add_field(name="StreamBot Help time", value="Time shows you the time until the next livestream from NinjaNube Gaming.\nThis command is NOT case sensitive\nThis command has no parameters")
         elif args[1] == "gif" or args[1] == "$gif":  # if '$help gif' or '$help $gif' entered
             embed.add_field(name="StreamBot Help gif", value="Gif sends a random gif\nThis command is NOT case sensitive\nParameters: list\n\tList lists the links to the chosen gifs")
+        elif args[1] == "info" or args[1] == "$info":  # if '$help info' or '$help $info' entered
+            embed.add_field(name="StreamBot Help info", value="Info sends the tagged user's information\nThis command is NOT case sensitive\nParameters: tag a user\n\tTagging makes the command work")
         else:  # if '$help' entered
             embed.add_field(name="StreamBot Help", value="StreamBot commands start with $ to avoid accidental calls from other bot.\nTry \'$help $time\' or \'$help commands\'")
         await client.send_message(message.channel, embed=embed)
