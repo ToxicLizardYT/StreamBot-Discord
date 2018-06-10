@@ -86,10 +86,10 @@ async def on_message(message):
         embed = discord.Embed(title="User Info", color=0x50affb)
         if args[1] != "end":
             for member in client.get_all_members():
-                if member.id == args[1]:
-                    embed.add_field(name="User ID:", value=str(member.id))
-                    embed.add_field(name="Current Game:", value=str(member.game))
-                    embed.add_field(name="Username: ", value=str(member.name))
+                if str("<@" + member.id + ">") == args[1]:
+                    embed.add_field(name="User's ID:", value=str(member.id))
+                    embed.add_field(name="User's iscriminator:", value=str(member.discriminator))
+                    embed.add_field(name="Username: ", value=str(member.uersnme))
         else:
             embed.add_field(name="No member tagged", value="Please tag a member when using this function")
         await client.send_message(message.channel, embed=embed)
