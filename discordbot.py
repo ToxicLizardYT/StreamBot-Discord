@@ -59,11 +59,11 @@ async def on_member_join(member):  # When a member joins the server
     embed = discord.Embed(name="Welcome!", color=0xff0080)
     embed.add_field(name="Welcome to the server!", value="try \'$help commands\' for a list of commands")
     if str(member.server.id) == "454393067974426634":
-        await client.send_messge(discord.Object("455197231050522645"), embed=embed)
+        await client.send_message(discord.Object("455197231050522645"), embed=embed)
     elif str(member.server.id) == "395827123618840576":
-        await client.send_messge(discord.Object("454395821052657685"), embed=embed)
+        await client.send_message(discord.Object("454395821052657685"), embed=embed)
     elif str(member.server.id) == "396673653129084939":
-        await client.send_messge(discord.Object("396673653129084941"), embed=embed)
+        await client.send_message(discord.Object("396673653129084941"), embed=embed)
 
 
 @client.event
